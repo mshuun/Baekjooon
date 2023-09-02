@@ -1,3 +1,7 @@
+import sys
+input = sys.stdin.readline
+print = sys.stdout.write
+
 n = int(input())
 d = {}
 for _ in range(n):
@@ -8,4 +12,4 @@ for _ in range(n):
 for i in range(1,201):
     if i in d:
         for j in d[i]:
-            print(i,j)
+            print(str(i)+' '+j+'\n')
