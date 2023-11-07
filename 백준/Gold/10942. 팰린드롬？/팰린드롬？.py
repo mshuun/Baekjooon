@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
-
+print = sys.stdout.write
 N = int(input())
 Ns = list(map(int, input().split()))
 dp = [[0] * N for _ in range(N)]
@@ -17,4 +17,4 @@ for k in range(2, N):
 M = int(input())
 for _ in range(M):
     s, e = map(int, input().split())
-    print(dp[s-1][e-1])
+    print(str(dp[s-1][e-1])+'\n')
