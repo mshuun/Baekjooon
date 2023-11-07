@@ -1,9 +1,9 @@
 import sys
-input = sys.stdin.readline
-print = sys.stdout.write
-N = int(input())
-Ns = list(map(int, input().split()))
+
+N = int(sys.stdin.readline())
+Ns = list(map(int, sys.stdin.readline().split()))
 dp = [[0] * N for _ in range(N)]
+
 for i in range(N):
     dp[i][i] = 1
 for i in range(N - 1):
@@ -14,7 +14,10 @@ for k in range(2, N):
         j = i + k
         if Ns[i] == Ns[j] and dp[i + 1][j - 1]:
             dp[i][j] = 1
-M = int(input())
+M = int(sys.stdin.readline())
+a = []
 for _ in range(M):
-    s, e = map(int, input().split())
-    print(str(dp[s-1][e-1])+'\n')
+    s, e = map(int, sys.stdin.readline().split())
+    a.append(f'{dp[s-1][e-1]}\n')
+
+sys.stdout.write(''.join(a))
