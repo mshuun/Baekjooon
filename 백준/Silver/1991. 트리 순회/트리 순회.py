@@ -1,39 +1,29 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
+def preorder(tree, node):
+    if node != '.':
+        print(node, end="")
+        preorder(tree, tree[node][0])
+        preorder(tree, tree[node][1])
 
-def preorder(node):
-    if node:
-        print(node.data, end="")
-        preorder(node.left)
-        preorder(node.right)
+def inorder(tree, node):
+    if node != '.':
+        inorder(tree, tree[node][0])
+        print(node, end="")
+        inorder(tree, tree[node][1])
 
-def inorder(node):
-    if node:
-        inorder(node.left)
-        print(node.data, end="")
-        inorder(node.right)
-
-def postorder(node):
-    if node:
-        postorder(node.left)
-        postorder(node.right)
-        print(node.data, end="")
-
-nodes = {chr(i + 65): Node(chr(i + 65)) for i in range(26)}
+def postorder(tree, node):
+    if node != '.':
+        postorder(tree, tree[node][0])
+        postorder(tree, tree[node][1])
+        print(node, end="")
 
 n = int(input())
+tree = {}
 for _ in range(n):
     root, left, right = input().split()
-    if left != ".":
-        nodes[root].left = nodes[left]
-    if right != ".":
-        nodes[root].right = nodes[right]
+    tree[root] = (left, right)
 
-preorder(nodes['A'])
+preorder(tree, 'A')
 print()
-inorder(nodes['A'])
+inorder(tree, 'A')
 print()
-postorder(nodes['A'])
+postorder(tree, 'A')
