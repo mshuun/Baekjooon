@@ -1,2 +1,1 @@
-R,C,K=map(int,input().split())
-print(int(K==1 or R*C%2==0))
+R,C,K=map(int,input().split());print(int(K<2)|int(R*C%2<1))
