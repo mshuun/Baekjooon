@@ -1,3 +1,4 @@
-A, B = map(int, input().split())
-result = A / B
-print(result)
+from decimal import Decimal, getcontext
+getcontext().prec = 1001
+A, B = map(Decimal, input().split())
+print(A / B)
