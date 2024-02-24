@@ -1,12 +1,5 @@
 import sys
+input=sys.stdin.readline
 import heapq
-input = sys.stdin.readline
-decks = []
-for i in range(int(input())):
-    heapq.heappush(decks,int(input()))
-n = 0
-while len(decks)>1:
-    a = heapq.heappop(decks) + heapq.heappop(decks)
-    n += a
-    heapq.heappush(decks,a)
-print(n)
+heapq.heapify(d:=[int(input()) for _ in range(int(input()))])
+print(sum(heapq.heappush(d,(a:=heapq.heappop(d))+(b:=heapq.heappop(d))) or a+b for _ in range(len(d)-1)))
