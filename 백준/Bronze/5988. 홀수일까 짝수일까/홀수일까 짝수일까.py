@@ -1,1 +1,1 @@
-exec("print('odd'if int(input())%2else'even');"*int(input()))
+exec("print('eovdedn'[int(input())%2:7:2]);"*int(input()))
