@@ -1,0 +1,1 @@
+exec("print('odd'if int(input())%2else'even');"*int(input()))
