@@ -1,12 +1,2 @@
 for _ in range(int(input())):
-    times = list(input().split())
-    angles = []
-    for time in times:
-        H, M = map(int, time.split(':'))
-        hour_angle = (H % 12) * 30 + M * 0.5
-        minute_angle = M * 6 
-        angle_diff = abs(hour_angle - minute_angle)
-        angle = min(angle_diff, 360 - angle_diff)
-        angles.append((angle, time))
-    angles.sort()
-    print(angles[2][1])
+    print(sorted((min(abs((h%12)*30+m*0.5-m*6),360-abs((h%12)*30+m*0.5-m*6)),f'{h:02d}:{m:02d}')for h,m in[map(int,t.split(':'))for t in input().split()])[2][1])
