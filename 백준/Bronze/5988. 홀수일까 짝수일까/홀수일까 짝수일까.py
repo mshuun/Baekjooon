@@ -1,1 +1,1 @@
-exec("print('eovdedn'[int(input())%2::2]);"*int(input()))
+print(*["eovdedn"[int(i)%2::2]for i in open(0)][1:])
