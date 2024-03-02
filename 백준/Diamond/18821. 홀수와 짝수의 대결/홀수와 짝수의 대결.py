@@ -48,21 +48,16 @@ a = [
     [906488009, 906488009], [906488023, 906488025], [906488027, 906488065],
     [906488067, 906488067], [906488077, 906488079]
 ]
-def binary_search(n):
-    left, right = 0, len(a) - 1
-    while left <= right:
-        mid = (left + right) // 2
-        if a[mid][0] <= n <= a[mid][1]:
-            return True
-        elif n < a[mid][0]:
-            right = mid - 1
-        else:
-            left = mid + 1
-    return False
-
-for _ in range(int(input())):
+T = int(input())
+for _ in range(T):
     n = int(input())
-    if n==1 or binary_search(n):
+    P = False
+    for i in range(137):
+        if a[i][0] <= n <= a[i][1]:
+            P = True
+            break
+
+    if n == 1 or P:
         print("E")
     else:
         print("O")
