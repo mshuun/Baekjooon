@@ -1,1 +1,1 @@
-main(a,b){scanf("%d %d",&a,&b);puts(a%b?"No":"Yes");}
+main(a,b){scanf("%d%d",&a,&b);puts(a%b?"No":"Yes");}
