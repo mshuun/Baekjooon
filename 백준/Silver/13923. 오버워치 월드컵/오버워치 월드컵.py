@@ -1,36 +1,33 @@
 while True:
  try:
-  A = int(input())
+  A=int(input())
  except:
   break
- B = [input() for _ in range(A)]
- C = set()
- D = ''
+ B=[input() for _ in range(A)]
+ C=set()
+ D=''
  for E in range(3):
-  F = ''.join(sorted(B[E]))
+  F=''.join(sorted(B[E]))
   if F in C:
-   D = F
+   D=F
    break
   C.add(F)
-
- G = H = -1
+ G=H=-1
  for I in range(A):
   for J in range(A):
-   K = B[I][J]
+   K=B[I][J]
    for L in range(J):
-    if G == -1 and K == B[I][L]:
-     G = I
+    if G==-1 and K==B[I][L]:
+     G=I
      for M in range(A):
-      if M != I and B[M][J] == K:
-       H = J
+      if M!=I and B[M][J]==K:
+       H=J
        break
-     if H == -1:
-      H = L
+     if H==-1:
+      H=L
    if K not in D:
-    G = I
-    H = J
-
+    G,H=I,J
  for N in D:
   if N not in B[G]:
-   print(f"{G+1} {H+1} {N}")
+   print(G+1,H+1,N)
    break
