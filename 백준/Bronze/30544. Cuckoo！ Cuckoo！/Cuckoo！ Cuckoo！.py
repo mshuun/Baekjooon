@@ -4,14 +4,8 @@ if m == 0:
     n -= h
 elif m in [15,30,45]:
     n -= 1
-elif m<15:
-    m = 15
-    n -= 1
-elif m<30:
-    m = 30
-    n -= 1
 elif m<45:
-    m = 45
+    m=int(m/15+1)*15
     n -= 1
 else:
     m = 0
