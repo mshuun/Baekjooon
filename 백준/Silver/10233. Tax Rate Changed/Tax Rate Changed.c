@@ -1,31 +1,39 @@
 #include <stdio.h>
 
-int main()
-{
-    int x, y, s;
-    while (1)
-    {
-        scanf("%d %d %d", &x, &y, &s);
-        if (x == 0 && y == 0 && s == 0)
-            break;
+int A[1000][100];
 
-        int max_after_tax_price = 0;
-        for (int before_tax_price1 = 1; before_tax_price1 < s; before_tax_price1++)
-        {
-            for (int before_tax_price2 = 1; before_tax_price2 < s; before_tax_price2++)
-            {
-                if (before_tax_price1 + before_tax_price2 + (before_tax_price1 * x / 100) + (before_tax_price2 * x / 100) == s)
-                {
-                    int after_tax_price1 = before_tax_price1 + (before_tax_price1 * y / 100);
-                    int after_tax_price2 = before_tax_price2 + (before_tax_price2 * y / 100);
-                    if (max_after_tax_price < after_tax_price1 + after_tax_price2)
-                    {
-                        max_after_tax_price = after_tax_price1 + after_tax_price2;
-                    }
+int main() {
+    for(int i = 0; i < 1000; i++) {
+        for(int t = 0; t < 100; t++) {
+            A[i][t] = i * (100 + t) / 100;
+        }
+    }
+
+    while(1) {
+        int x, y, s;
+        if(scanf("%d %d %d", &x, &y, &s) != 3) {
+            break;
+        }
+
+        if(x == 0) break;
+
+        int B = s - 1, C = 0;
+        for(int D = 1; D < s; D++) {
+            if(B < D) break;
+            int E = A[D][x], F = A[B][x];
+            while(F + E > s) {
+                B -= 1;
+                if(B < D) break;
+                F = A[B][x];
+            }
+            if(B >= D && E + F == s) {
+                if(A[D][y] + A[B][y] > C) {
+                    C = A[D][y] + A[B][y];
                 }
             }
         }
-        printf("%d\n", max_after_tax_price);
+        printf("%d\n", C);
     }
+
     return 0;
 }
