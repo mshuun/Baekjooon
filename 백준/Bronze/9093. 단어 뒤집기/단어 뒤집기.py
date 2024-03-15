@@ -1,0 +1,1 @@
+for i in range(int(input())):print(*[b[::-1] for b in list(input().split())])
