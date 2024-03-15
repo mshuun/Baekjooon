@@ -1,17 +1,13 @@
 import sys
-print = sys.stdout.write
 input = sys.stdin.readline
-
 n = int(input())
-names = set()
-for _ in range(n):
-    name,a = input().split()
-    if a == 'enter':
-        names.add(name)
+h = set()
+for i in range(n):
+    name, c = input().split()
+    if c == 'enter':
+        h.add(name)
     else:
-        names.discard(name)
-names = list(names)
-names.sort(reverse=True)
-for i in names:
-    print(i)
-    print('\n')
+        h.remove(name)
+h = list(h)
+h.sort(reverse=True)
+print(*h)
