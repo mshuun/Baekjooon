@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-
-int main() {
+main() {
     int N;
     char S[101];
 
@@ -21,6 +18,4 @@ int main() {
     } else {
         printf("No\n");
     }
-
-    return 0;
 }
