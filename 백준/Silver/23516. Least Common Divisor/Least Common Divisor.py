@@ -1,21 +1,13 @@
-def F(n):
- D=[1]
- for i in range(2,int(n**0.5)+1):
-  if n%i==0:
-   D.append(i)
-   if i!=n//i:D.append(n//i)
- D.append(n)
- return sorted(D)
-a=input()
-b=input()
-def G(N,s):
- L=[]
- for i in F(N):
-  K=s[:i]
-  if K*(N//i)==s:L.append(K)
- return L
-for i in G(len(a),a):
- if i in G(len(b),b):
-  print(i)
-  break
-else:print('No solution')
+S,T=input(),input()
+def R(s,U):return s==U*(len(s)//len(U))
+def G(a, b):
+ while b:a,b=b,a%b
+ return a
+E=G(len(S),len(T))
+for i in range(1,E+1):
+ if E%i==0:
+  P=S[:i]
+  if R(S,P) and R(T,P):
+   print(P)
+   break
+else:print("No solution")
