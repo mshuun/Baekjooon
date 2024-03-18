@@ -1,0 +1,1 @@
+main(L,R,A){scanf("%d%d%d",&L,&R,&A);while(A--)L<R?L++:R++;printf("%d",2*(L<R?L:R));}
