@@ -1,1 +1,1 @@
-main(T,i){scanf("%d",&T);for(i=0;i<T;i++){double N,D,A,B,F;scanf("%lf%lf%lf%lf%lf",&N,&D,&A,&B,&F);printf("%.0lf %.8lf\n",N,F*D/(A+B));}}
+main(T,i,N){scanf("%d",&T);for(i=0;i<T;i++){float D,A,B,F;scanf("%d%f%f%f%f",&N,&D,&A,&B,&F);printf("%d %.5f\n",N,F*D/(A+B));}}
