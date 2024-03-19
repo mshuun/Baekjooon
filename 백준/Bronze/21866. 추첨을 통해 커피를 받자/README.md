@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 31252 KB, 시간: 40 ms
+메모리: 31120 KB, 시간: 40 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2024년 3월 19일 09:29:40
+2024년 3월 19일 09:31:48
 
 ### 문제 설명
 
@@ -30,7 +30,7 @@
 
 ### 입력 
 
- <p>첫 번째 줄에 9개의 정수가 주어진다. 각 정수는 $0$ 이상 $1\,000$ 이하의 정수다. 각 정수는 해당 학생이 각 문제에서 얻은 점수를 의미한다.</p>
+ <p>첫 번째 줄에 9개의 정수가 주어진다. 각 정수는 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$0$</span></mjx-container> 이상 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mn>000</mn></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$1\,000$</span></mjx-container> 이하의 정수다. 각 정수는 해당 학생이 각 문제에서 얻은 점수를 의미한다.</p>
 
 ### 출력 
 
