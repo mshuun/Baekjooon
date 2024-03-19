@@ -1,12 +1,4 @@
-X=int(input())
-N=int(input())
+X,N=int(input()),int(input())
 c=0
-while 1:
-    r=X%3
-    if r==0:X+=1
-    elif r==1:X*=2
-    else:X*=3
-    c+=1
-    if X>=N:
-        break
+while X<N:c+=1;X=(X+1 if X%3==0 else X*2 if X%3==1 else X*3)
 print(c)
