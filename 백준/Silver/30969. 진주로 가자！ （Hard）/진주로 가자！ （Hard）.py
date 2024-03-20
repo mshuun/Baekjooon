@@ -1,19 +1,15 @@
 import sys
-C = [0 for i in range(1001)]
-D = -1
-cc = 0
 input = sys.stdin.readline
+cost_list = [0 for _ in range(1002)]
+jinju_cost = 0
 for _ in range(int(input())):
-    d, c = input().split()
-    c = int(c)
-    if c > 1000:
-        cc += 1
+    destination, cost = input().split()
+    cost = int(cost)
+    if cost > 1000:
+        cost_list[1001] += 1
+    elif destination == 'jinju':
+        jinju_cost = cost
     else:
-        if d == 'jinju':
-            D = c
-        if D == -1:
-            C[c] += 1
-        elif D < c:
-            cc += 1
-print(D)
-print(cc+sum(C[D+1:]))
+        cost_list[cost] += 1
+print(jinju_cost)
+print(sum(cost_list[jinju_cost+1:]))
