@@ -1,0 +1,1 @@
+a,b=map(int,input().split());print(int(f"{a^b:010b}",2))
