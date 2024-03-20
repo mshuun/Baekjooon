@@ -1,0 +1,1 @@
+print(int(4*(2*int(input()))**0.5))
