@@ -1,0 +1,6 @@
+n,m=map(int,input().split())
+a,b=map(int,input().split())
+r = set()
+for i in range(n,m):r.add(i)
+for i in range(a,b):r.add(i)
+print(len(r))
