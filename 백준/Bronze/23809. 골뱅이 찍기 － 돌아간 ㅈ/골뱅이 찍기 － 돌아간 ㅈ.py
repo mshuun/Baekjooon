@@ -1,0 +1,6 @@
+n = int(input())
+for i in range(n):print('@'*n*1+' '*n*3+'@'*n*1)
+for i in range(n):print('@'*n*1+' '*n*2+'@'*n*1)
+for i in range(n):print('@'*n*3)
+for i in range(n):print('@'*n*1+' '*n*2+'@'*n*1)
+for i in range(n):print('@'*n*1+' '*n*3+'@'*n*1)
