@@ -1,0 +1,1 @@
+main(a, b,i){scanf("%d%d",&a,&b);for(i=-999;i<=999;i++)if (i*i+2*a*i==-b)printf("%d ",i);}
