@@ -1,0 +1,6 @@
+input()
+S=input()
+s,b=S.count('security'),S.count('bigdata')
+if s>b:print('security!')
+elif s<b:print('bigdata?')
+else:print('bigdata? security!')
