@@ -1,13 +1,8 @@
 T = int(input())
-for i in range(T):
+for _ in range(T):
     N = int(input())
     L = list(map(int, input().split()))
     L.sort()
-    l = L[::2]
-    r = L[1::2]
-    r = r[::-1]
-    L = l+r
-    m = 0
-    for j in range(len(L)):
-        m = max(m, abs(L[j]-L[j-1]))
+    L = L[::2] + L[1::2][::-1]
+    m = max(abs(L[i] - L[i-1]) for i in range(N))
     print(m)
