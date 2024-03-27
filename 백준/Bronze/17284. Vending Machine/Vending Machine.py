@@ -1,0 +1,1 @@
+print((50-sum([5,8,10][int(i)-1]for i in input().split()))*100)
