@@ -1,18 +1,17 @@
-import sys
-input = sys.stdin.readline
 N, M = map(int, input().split())
-m = [[] for _ in range(N+1)]
-for i in range(M):
+bad = set()
+for _ in range(M):
     a, b = map(int, input().split())
-    m[a].append(b)
-    m[b].append(a)
-r = 0
+    bad.add((a, b))
+    bad.add((b, a))
+
+result = 0
 for i in range(1, N+1):
     for j in range(i+1, N+1):
-        if j in m[i]:
+        if (i, j) in bad:
             continue
         for k in range(j+1, N+1):
-            if k in m[i] or k in m[j]:
+            if (i, k) in bad or (j, k) in bad:
                 continue
-            r += 1
-print(r)
+            result += 1
+print(result)
