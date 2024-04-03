@@ -1,0 +1,1 @@
+main(){long long n,q;scanf("%lld",&n);q=(long long)sqrt(n);if(q*q>=n)printf("%lld",q);else printf("%lld",q+1);}
