@@ -1,69 +1,38 @@
 #include <unistd.h>
-#include <sys/syscall.h>
+#define S 1024
+char b[S]; int p,n,o;
 
-#define RSZ (1<<18)  
-#define WSZ (1<<15)  
-
-#define readInt(n) {                          \
-    while (*p <= 32) ++p;                     \
-    int sgn = 1;                              \
-    if (*p == '-') sgn = -1, ++p;             \
-    n = 0;                                    \
-    while ((unsigned)(*p - '0') < 10)         \
-        n = n*10 + (*p++ & 15);               \
-    n *= sgn;                                 \
+int gc(){ return p<n?b[p++]:((n=syscall(0,0,b,S))>0?(p=1,b[0]):0); }
+int ri(){
+    int c=gc(),s=1,x=0;
+    while(c<=32) c=gc();
+    if(c==45) s=-1,c=gc();
+    while((unsigned)(c-48)<10) x=x*10+(c&15),c=gc();
+    return x*s;
+}
+void oc(char c){ if(o>=S) syscall(1,1,b,o),o=0; b[o++]=c; }
+void wi(int x){
+    if(!x){ oc(48); return; }
+    if(x<0) oc(45),x=-x;
+    char t[12]; int i=0;
+    while(x) t[i++]=x%10+48,x/=10;
+    while(i) oc(t[--i]);
 }
 
-static inline void flush(char *w, int *wi){
-    if(*wi) syscall(SYS_write, 1, w, *wi), *wi = 0;
-}
+typedef signed char i8;
 
-static inline void writeIntBuf(char *w, int *wi, int x){
-    if (*wi > WSZ - 16) flush(w, wi);
+void __libc_start_main(){
+    i8 A[100][100],B[100][100];
+    int N=ri(),M=ri(),K;
+    for(int i=0;i<N;i++) for(int j=0;j<M;j++) A[i][j]=ri();
+    ri(); K=ri();
+    for(int i=0;i<M;i++) for(int j=0;j<K;j++) B[i][j]=ri();
 
-    if (x == 0){ w[(*wi)++]='0'; return; }
-    if (x < 0){ w[(*wi)++]='-'; x = -x; }
-
-    char t[12];
-    int n=0;
-    while(x){ t[n++] = (char)('0' + (x%10)); x/=10; }
-    while(n--) w[(*wi)++] = t[n];
-}
-
-__attribute__((noreturn))
-int __libc_start_main() {
-    static char r[RSZ];
-    static char w[WSZ];
-    int wi = 0;
-
-    syscall(SYS_read, 0, r, RSZ);
-    char *p = r;
-
-    int N,M,K,M2;
-    static int A[100][100];
-    static int B[100][100];
-
-    readInt(N); readInt(M);
-    for(int i=0;i<N;i++)
-        for(int k=0;k<M;k++)
-            readInt(A[i][k]);
-
-    readInt(M2); readInt(K); (void)M2;
-    for(int k=0;k<M;k++)
-        for(int j=0;j<K;j++)
-            readInt(B[k][j]);
- 
-    for(int i=0;i<N;i++){
-        for(int j=0;j<K;j++){
-            int s=0;
-            for(int k=0;k<M;k++) s += A[i][k]*B[k][j];
-            writeIntBuf(w, &wi, s);
-            w[wi++] = (j+1==K)?'\n':' ';
-            if (wi > WSZ - 32) flush(w, &wi);
-        }
+    for(int i=0;i<N;i++) for(int j=0;j<K;j++){
+        int s=0; for(int k=0;k<M;k++) s+=A[i][k]*B[k][j];
+        wi(s); oc(j+1==K?10:32);
     }
-
-    flush(w, &wi);
+    syscall(1,1,b,o);
     _exit(0);
 }
-int main;
+main;
