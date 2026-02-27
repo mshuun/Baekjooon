@@ -1,14 +1,11 @@
 n = int(input())
-owon = n//5
-yeewon = (n-owon*5)//2
+count = 0
 
-while owon*5 + yeewon*2 != n:
-    owon -= 1
-    yeewon = (n-owon*5)//2
-    if owon == -1:
+while n >= 0:
+    if n % 5 == 0:
+        print(count + (n // 5))
         break
-
-if  owon == -1:
-    print(-1)
+    n -= 2
+    count += 1
 else:
-    print(owon+yeewon)
+    print(-1)
