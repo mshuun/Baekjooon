@@ -1,51 +1,42 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
 
-static const int BUFSZ = 1 << 20;
-static unsigned char buf[BUFSZ];
-static int bi = 0, bn = 0;
-
-static inline int gc() {
-    if (bi >= bn) { bn = fread(buf, 1, BUFSZ, stdin); bi = 0; }
-    return bn ? buf[bi++] : -1;
-}
-static inline long long rd() {
-    int c; do c = gc(); while (c <= 32);
-    long long x = 0;
-    for (; c > 32; c = gc()) x = x * 10 + (c - '0');
-    return x;
-}
+int a[1000000];
 
 int main() {
-    int N = (int)rd();
-    long long M = rd();
 
-    vector<uint32_t> a(N);
-    uint32_t mx = 0;
-    for (int i = 0; i < N; ++i) {
-        uint32_t v = (uint32_t)rd();
-        a[i] = v;
-        if (v > mx) mx = v;
+    struct stat st; fstat(0, &st);
+    char* p = (char*)mmap(0, st.st_size, PROT_READ, MAP_SHARED, 0, 0);
+    
+    auto get = [&]() {
+        int n = 0;
+        while (*p < '0') p++;
+        while (*p >= '0') n = n * 10 + *p++ - '0';
+        return n;
+    };
+    
+    int n = get(), m = get(), r = 0;
+    
+    for (int i = 0; i < n; ++i) {
+        if ((a[i] = get()) > r) r = a[i];
     }
-
-    uint32_t lo = 0, hi = mx, ans = 0;
-    while (lo <= hi) {
-        uint32_t mid = lo + ((hi - lo) >> 1);
-        unsigned long long s = 0;
-
-        const uint32_t *p = a.data();
-        for (int i = 0; i < N; ++i) {
-            uint32_t v = p[i];
-            if (v > mid) {
-                s += (unsigned long long)(v - mid);
-                if (s >= (unsigned long long)M) break;
-            }
+    
+    int l = 0, ans = 0;
+    while (l <= r) {
+        int mid = l + (r - l) / 2;
+        long long sum = 0;
+        
+        for (int i = 0; i < n; ++i) 
+            if (a[i] > mid) sum += a[i] - mid;
+        
+        if (sum >= m) {
+            ans = mid;
+            l = mid + 1; 
+        } else {
+            r = mid - 1;
         }
-
-        if (s >= (unsigned long long)M) ans = mid, lo = mid + 1;
-        else hi = mid - 1;
     }
-
-    printf("%u\n", ans);
-    return 0;
+    
+    printf("%d", ans);
 }
