@@ -7,13 +7,15 @@ int main() {
     int n;
     string S;
     cin >> n >> S;
-    for (int i = 0; i < n; i++) {
-        if (S[i] == 'I') {
-            S[i] = 'i';
+
+    for (char &c : S) {
+        if (c == 'I') {
+            c = 'i';
         } else {
-            S[i] = 'L';
+            c = 'L';
         }
     }
+
     cout << S;
     return 0;
 }
