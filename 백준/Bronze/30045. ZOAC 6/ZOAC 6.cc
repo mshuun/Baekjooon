@@ -1,26 +1,24 @@
-#include <algorithm>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     int N, emo = 0;
     cin >> N;
+
     while (N--) {
         string S;
         cin >> S;
-        int len = S.length();
-        for (int i = 0; i < len - 1; i++) {
-            if (S[i] == '0' && S[i + 1] == '1') {
-                emo++;
-                break;
-            } else if (S[i] == 'O' && S[i + 1] == 'I') {
-                emo++;
-                break;
-            }
+        if (S.find("01") != string::npos || S.find("OI") != string::npos) {
+            emo++;
         }
     }
+
     cout << emo;
+
     return 0;
 }
