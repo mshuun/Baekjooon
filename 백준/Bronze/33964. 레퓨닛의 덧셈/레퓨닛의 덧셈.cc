@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <string>
 
@@ -7,13 +8,12 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int X, Y;
 
+    int X, Y;
     cin >> X >> Y;
-    for (int i = 0; i < max(X, Y) - min(X, Y); i++)
-        cout << 1;
-    for (int i = 0; i < min(X, Y); i++) {
-        cout << 2;
-    }
+
+    cout << string(abs(X - Y), '1');
+    cout << string(min(X, Y), '2');
+
     return 0;
 }
