@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    string S;
+    int R = 0;
+    getline(cin, S);
+    string h = "AabDdegOoPpQqR@";
+    for (char c : S) {
+        if (c == 'B') {
+            R += 2;
+        } else if (h.find(c) != string::npos) {
+            R++;
+        }
+    }
+    cout << R;
+    return 0;
+}
