@@ -1,0 +1,1 @@
+char b[16];s,m,i,w=1;__libc_start_main(){read(0,b,13);for(;i<13;w^=2,i++)b[i]^42?s+=b[i]%16*w:(m=w);for(i=0;(s+i*m)%10;i++);*b=i|48;write(1,b,1);_exit(0);}main;

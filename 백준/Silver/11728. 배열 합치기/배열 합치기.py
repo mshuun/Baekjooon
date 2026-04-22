@@ -1,0 +1,5 @@
+N, M = map(int,input().split())
+A = map(int, input().split())
+B = map(int, input().split())
+C = sorted(list(A) + list(B))
+print(*C)

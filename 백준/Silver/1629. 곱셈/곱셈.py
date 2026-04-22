@@ -1,0 +1,2 @@
+a,b,c=map(int,input().split());r=pow(a,b,c)
+print(r)

@@ -1,0 +1,6 @@
+a,b= input().split()
+AA = a.replace("5","6")
+BB = b.replace("5","6")
+aa = a.replace("6","5")
+bb = b.replace("6","5")
+print(int(aa)+int(bb),int(AA)+int(BB))

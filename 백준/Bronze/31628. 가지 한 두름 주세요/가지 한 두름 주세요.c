@@ -1,0 +1,1 @@
+main(){char a[10][10][9];int i,j,f=0;for(i=0; i<10; i++)for(j=0; j<10; j++) scanf("%s", a[i][j]);for(i=0; i<10; i++){for(j=1; j<10; j++)if(strcmp(a[i][0], a[i][j]) != 0)break;if(j==10){f=1;break;}}for(j=0;j<10&&!f;j++){for(i=1;i<10;i++)if(strcmp(a[0][j],a[i][j])!=0)break;if(i==10){f=1;break;}}printf("%d",f);}

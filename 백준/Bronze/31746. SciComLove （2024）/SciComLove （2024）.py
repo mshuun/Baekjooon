@@ -1,0 +1,1 @@
+print(["SciComLove", "evoLmoCicS"][int(input()) % 2])

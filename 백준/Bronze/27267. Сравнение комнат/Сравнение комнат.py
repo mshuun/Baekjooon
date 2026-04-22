@@ -1,0 +1,11 @@
+a, b, c, d = map(int, input().split())
+
+a1 = a * b
+a2 = c * d
+
+if a1 > a2:
+    print("M")
+elif a1 < a2:
+    print("P")
+else:
+    print("E")

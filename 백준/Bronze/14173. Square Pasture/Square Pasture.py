@@ -1,0 +1,7 @@
+x1_a, y1_a, x2_a, y2_a = map(int, input().split())
+x1_b, y1_b, x2_b, y2_b = map(int, input().split())
+ty = min(y1_a, y1_b)
+ly = max(y2_a, y2_b)
+tx = min(x1_a, x1_b)
+lx = max(x2_a, x2_b)
+print(max((lx-tx), (ly-ty))**2)

@@ -1,0 +1,1 @@
+input();a=input().split();a.sort(key=lambda x:x*9,reverse=1);print(int(''.join(a)))
