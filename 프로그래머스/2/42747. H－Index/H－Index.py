@@ -1,4 +1,1 @@
-def solution(arr):
-    for i in range(10000,-1,-1):
-        if sum(1 for j in arr if j >= i) >= i :
-            return i
+def solution(arr):return max(i for i in range(10000)if sum(1for j in arr if j>=i)>=i)
