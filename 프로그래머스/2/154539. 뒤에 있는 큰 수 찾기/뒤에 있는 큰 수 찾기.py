@@ -1,9 +1,11 @@
 def solution(numbers):
-    a = []
-    b = [-1]*len(numbers)
-    for i,n in enumerate(numbers):
-        while len(a) != 0 and a[-1][0] < n:
-                b[a[-1][1]] = n
-                a.pop()
-        a.append((n,i))
-    return b
+    answer = [-1] * len(numbers)
+    stack = []
+
+    for i, n in enumerate(numbers):
+        while stack and numbers[stack[-1]] < n:
+            answer[stack.pop()] = n
+
+        stack.append(i)
+
+    return answer
