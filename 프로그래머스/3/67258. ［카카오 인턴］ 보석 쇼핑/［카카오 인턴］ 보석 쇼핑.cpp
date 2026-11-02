@@ -2,26 +2,26 @@
 using namespace std;
 
 vector<int> solution(vector<string> gems) {
+    int n = gems.size();
     int target = unordered_set<string>(gems.begin(), gems.end()).size();
-    unordered_map<string, int> counts;
 
+    unordered_map<string, int> cnt;
+    vector<int> answer = {1, n};
     int left = 0;
-    vector<int> answer = {0, (int)gems.size() - 1};
 
-    for (int right = 0; right < gems.size(); right++) {
-        counts[gems[right]]++;
+    for (int right = 0; right < n; right++) {
+        cnt[gems[right]]++;
 
-        while (counts.size() == target) {
+        while (cnt.size() == target) {
             if (right - left < answer[1] - answer[0])
-                answer = {left, right};
+                answer = {left + 1, right + 1};
 
-            counts[gems[left]]--;
-            if (counts[gems[left]] == 0)
-                counts.erase(gems[left]);
+            if (--cnt[gems[left]] == 0)
+                cnt.erase(gems[left]);
 
             left++;
         }
     }
 
-    return {answer[0] + 1, answer[1] + 1};
+    return answer;
 }
